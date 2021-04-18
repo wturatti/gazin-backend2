@@ -13,7 +13,14 @@ class DeveloperCreateTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('developer', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nome');
+            $table->char('sexo', 1);
+            $table->integer('idade');
+            $table->string('hobby');
+            $table->date('datanascimento');
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class DeveloperCreateTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('developer');
     }
 }
